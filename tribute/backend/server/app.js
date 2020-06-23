@@ -7,9 +7,12 @@ const cors = require('cors');
 require('./db');
 
 // meter las routes aqui una vez creadas el archivo de rutas.
+
+// Routes BladerunnerTAB
 const bladerunnerRoutes = require('../routesBlade/bladerunner.routes');
 const replicantRoutes = require('../routesBlade/replicants.routes');
 
+// Routes TronTAB:
 
 const whiteList = ['http://localhost:3000', 'http://localhost']
 const corsOptions = {
@@ -46,7 +49,20 @@ app.use((req, res, next) => {
 // example:
 //app.use('/goals', goalRoutes);
 
-app.use('/bladerunner', bladerunnerRoutes);
+// Routes bladerunnerTAB:
+app.use('/bladerunner/bladerunner', bladerunnerRoutes);
+app.use('/bladerunner/replicants', replicantRoutes);
+
+// Routes TronTAB:
+
+// Routes They LivesTAB:
+
+// Routes PredatorTAB:
+
+// Routes TheTimeMachineTAB:
+
+// Routes AlienTAB:
+
 
 app.use((req, res, next) => {
   const error = new Error('Not found');

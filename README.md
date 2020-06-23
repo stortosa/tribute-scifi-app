@@ -38,7 +38,7 @@ _It ends with an example of how to get data from the system or how to use it for
 
 * **Carlos** - *resolve conflicts* - [Carlos](https://github.com/carlostrujillosamper/)
 * **Javier** - *help with backend* - [Javier](https://github.com/javinovich)
-* **Nombre** - *Documentación* - [nombre](https://github.com/nombre)
+* **Jesús** - *help with frontend* - [Jesús](https://github.com/GMSP4)
 
 ## Expressions of Gratitude 🎁
 
