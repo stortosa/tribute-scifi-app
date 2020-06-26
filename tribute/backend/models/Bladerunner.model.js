@@ -8,7 +8,7 @@ const bladeRunnerSchema = mongoose.Schema({
   adress: { type: String, required: true },
   category: { type: String, required: true },
   replicantsRemoved: { type: String, required: true },
-  weapons: { type: String, required: true },
+  weapons: { type: String },
   dateReplicantRemoved: { type: String },
   animals: { type: String },
   idiosyncrasy: { type: String }

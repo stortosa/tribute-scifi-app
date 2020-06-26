@@ -7,7 +7,7 @@ const router = express.Router();
 // Handle incoming GET requests to /orders
 router.get('/', (req, res, next) => {
   Replicant.find()
-    .select('name gender age model inceptDate functionality physicalLevel mentalLevel origin destinyPlanet replicantsRemoved _id')
+    .select('name gender age modelo inceptDate functionality physicalLevel mentalLevel origin destinyPlanet replicantsRemoved _id')
     .populate('replicant', 'name')
     .exec()
     .then(docs => {
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
             gender: doc.gender,
             age: doc.age,
             inceptDate: doc.inceptDate,
-            model: doc.model,
+            modelo: doc.modelo,
             functionality: doc.functionality,
             physicalLevel: doc.physicalLevel,
             mentalLevel: doc.mentalLevel,
@@ -79,7 +79,7 @@ router.post('/', (req, res, next) => {
           gender: result.gender,
           age: result.age,
           inceptDate: result.inceptDate,
-          model: result.model,
+          modelo: result.modelo,
           functionality: result.functionality,
           physicalLevel: result.physicalLevel,
           mentalLevel: result.mentalLevel,
@@ -106,7 +106,7 @@ router.post('/', (req, res, next) => {
 router.get('/:replicantId', (req, res, next) => {
   const id = req.params.replicantId;
   Replicant.findById(id)
-    .select('name gender age model inceptDate functionality physicalLevel mentalLevel origin destinyPlanet replicantsRemoved _id')
+    .select('name gender age modelo inceptDate functionality physicalLevel mentalLevel origin destinyPlanet replicantsRemoved _id')
     .populate('replicant')
     .exec()
     .then(doc => {
@@ -162,7 +162,7 @@ router.delete('/:replicantId', (req, res, next) => {
             gender: 'String',
             age: 'String',
             inceptDate: 'String',
-            model: 'String',
+            modelo: 'String',
             functionality: 'String',
             physicalLevel: 'String',
             mentalLevel: 'String',

@@ -8,7 +8,7 @@ const replicantSchema = mongoose.Schema({
   gender: { type: String, required: true },
   age: { type: String, required: true },
   inceptDate: { type: String, required: true },
-  model: { type: String, required: true },
+  modelo: { type: String },
   functionality: { type: String, required: true },
   physicalLevel: { type: String, required: true },
   mentalLevel: { type: String, required: true },

@@ -11,7 +11,11 @@ import HomeBlade from './bladerunner/components/HomeBlade';
 import AddBladerunner from './bladerunner/components/AddBladerunner';
 import Bladerunners from './bladerunner/components/Bladerunners';
 import BladeDetails from './bladerunner/components/BladeDetails';
-import EditBladerunner from './bladerunner/components/EditBladerunner.jsx';
+import EditBladerunner from './bladerunner/components/EditBladerunner';
+import AddReplicant from './bladerunner/components/AddReplicant';
+import Replicants from './bladerunner/components/Replicants';
+import ReplicantDetails from './bladerunner/components/ReplicantDetails';
+import EditReplicant from './bladerunner/components/EditReplicant';
 
 
 function App() {
@@ -19,7 +23,8 @@ function App() {
 
   const [bladerunner, saveBladerunner] = useState([]);
   const [reloadBladerunner, saveReloadBladerunner] = useState(true);
-
+  const [replicants, saveReplicants] = useState([]);
+  const [reloadReplicant, saveReloadReplicant]= useState(true);
 
   useEffect(() => {
     if (reloadBladerunner) {
@@ -34,6 +39,19 @@ function App() {
     }
   }, [reloadBladerunner]);
 
+  useEffect(()=>{
+    if(reloadReplicant){
+      const requestApiR = async () => {
+        const result = await axios.get('http://localhost:4000/bladerunner/replicants/')
+        // console.log(result.data.replicants);
+        saveReplicants(result.data.replicants);
+      }
+      requestApiR();
+      //change a false reload of replicants:
+      saveReloadReplicant(false);
+    }
+  },[reloadReplicant]);
+
   return (
     <Router>
       <Header />
@@ -44,13 +62,27 @@ function App() {
         <Route exact path="/bladerunner/bladerunner/new" render={() => <AddBladerunner saveReloadBladerunner={saveReloadBladerunner} />} />
         <Route exact path="/bladerunner/bladerunner/:_id" render={() => <BladeDetails />} />
         <Route exact path="/bladerunner/bladerunner/edit/:_id" render={(props) => {
-          console.log(props.match.params);
+          // console.log(props.match.params);
           const idBlade = (props.match.params._id);
           const oneBladerunner = bladerunner.filter(bladerunne => bladerunne._id === idBlade);
           return (
             <EditBladerunner
               oneBladerunner={oneBladerunner[0]}
               saveReloadBladerunner={saveReloadBladerunner} />
+          )
+        }} />
+        <Route exact path="/bladerunner/replicants" render={() =>
+          <Replicants replicants={replicants} saveReloadReplicant={saveReloadReplicant} />} />
+        <Route exact path="/bladerunner/replicants/new" render={() => <AddReplicant saveReloadReplicant={saveReloadReplicant} />} />
+        <Route exact path="/bladerunner/replicants/:_id" render={() => <ReplicantDetails />} />
+        <Route exact path="/bladerunner/replicants/edit/:_id" render={(props) => {
+          // console.log(props.match.params);
+          const idReplicant = (props.match.params._id);
+          const oneReplicant = replicants.filter(replicant => replicant._id === idReplicant);
+          return (
+            <EditReplicant
+              oneReplicant={oneReplicant[0]}
+              saveReloadReplicant={saveReloadReplicant} />
           )
         }} />
       </Switch>

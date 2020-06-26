@@ -8,12 +8,22 @@ const HomeBlade = () => (
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
             <NavLink to="/bladerunner/bladerunner" className="nav-link" activeClassName="active">
-              BLADE RUNNERS
+              LIST OF BLADE RUNNERS
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/bladerunner/replicant" className="nav-link" activeClassName="active">
-              REPLICANTS
+            <NavLink to="/bladerunner/bladerunner/new" className="nav-link" activeClassName="active">
+              ADD A BLADE RUNNERS
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/bladerunner/replicants" className="nav-link" activeClassName="active">
+              LIST OF REPLICANTS
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/bladerunner/replicants/new" className="nav-link" activeClassName="active">
+              ADD A REPLICANT
             </NavLink>
           </li>
         </ul>

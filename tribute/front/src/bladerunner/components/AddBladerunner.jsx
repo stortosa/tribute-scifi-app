@@ -64,7 +64,7 @@ function AddBladerunner({ history, saveReloadBladerunner }) {
 
   return (
     <div className="col-md-8 mx-auto">
-      <h1 className="text-center">Add new Goal</h1>
+      <h1 className="text-center">Add a new Blade Runner</h1>
 
       {error ? <Error message="All fields are mandatory" /> : null}
 
@@ -130,7 +130,7 @@ function AddBladerunner({ history, saveReloadBladerunner }) {
             type="text"
             className="form-control"
             name="weapons"
-            placeholder="Weapons"
+            placeholder="weapons"
             onChange={e => saveWeapons(e.target.value)}
           />
         </div>

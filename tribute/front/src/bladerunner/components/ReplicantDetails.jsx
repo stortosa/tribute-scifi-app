@@ -4,10 +4,10 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 
-function BladeDetails({ bladerunne, saveReloadBladerunner }) {
-  console.log(bladerunne)
+function ReplicantDetails({ replicant, saveReloadReplicant }) {
+  console.log(replicant)
 
-  const deleteBladerunner = (_id) => {
+  const deleteReplicant = (_id) => {
     console.log("Eliminando...", _id);
 
     Swal.fire({
@@ -21,17 +21,17 @@ function BladeDetails({ bladerunne, saveReloadBladerunner }) {
     }).then(async (result) => {
       if (result.value) {
         try {
-          const url = (`http://localhost:4000/bladerunner/bladerunner/${_id}`);
+          const url = (`http://localhost:4000/bladerunner/replicants/${_id}`);
           const result = await axios.delete(url);
 
           if (result.status === 200) {
             Swal.fire(
-              'Deleted!',
-              'Your Blade Runner has been deleted.',
+              'Retired!',
+              'The Replicant has been retired.',
               'success'
             )
             //link to API:
-            saveReloadBladerunner(true);
+            saveReloadReplicant(true);
           }
         } catch (error) {
           console.log(error);
@@ -48,23 +48,26 @@ function BladeDetails({ bladerunne, saveReloadBladerunner }) {
 
     <li className="list-group-item d-flex justify-content-between align-items-center">
       <p>
-        Name: {bladerunne.name}
+        Name: {replicant.name}
         {""}
       </p>
-      <p>Age: {bladerunne.age}</p>
-      <p>Adress: {bladerunne.adress}</p>
-      <p>Category: {bladerunne.category}</p>
-      <p>Replicants Retired: {bladerunne.replicants}</p>
-      <p>Weapons: {bladerunne.weapons}</p>
-      <p>Date: {bladerunne.date}</p>
-      <p>Animlas: {bladerunne.animals}</p>
-      <p>Idiosyncrasy: {bladerunne.idiosyncrasy}</p>
+      <p>Gender: {replicant.age}</p>
+      <p>Ages: {replicant.adress}</p>
+      <p>InceptDate: {replicant.category}</p>
+      <p>Model: {replicant.replicants}</p>
+      <p>Funcitonality: {replicant.weapons}</p>
+      <p>Physical Level: {replicant.date}</p>
+      <p>Mental Level: {replicant.animals}</p>
+      <p>Origin: {replicant.animals}</p>
+      <p>Destiny Planet: {replicant.animals}</p>
+      <p>Retired: {replicant.animals}</p>
+      <p>Idiosyncrasy: {replicant.idiosyncrasy}</p>
       <div>
-        <Link to={`/bladerunner/bladerunner/edit/${bladerunne._id}`} className="btn btn-success mr-2">Edit</Link>
-        <button type="button" className="btn btn-danger" onClick={() => deleteBladerunner(bladerunne._id)}>Delete &times;</button>
+        <Link to={`/bladerunner/replicants/edit/${replicant._id}`} className="btn btn-success mr-2">Edit</Link>
+        <button type="button" className="btn btn-danger" onClick={() => deleteReplicant(replicant._id)}>Delete &times;</button>
       </div>
     </li>
 
   );
 }
-export default BladeDetails;
+export default ReplicantDetails;
