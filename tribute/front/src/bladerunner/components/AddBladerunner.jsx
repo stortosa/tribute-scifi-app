@@ -14,7 +14,6 @@ function AddBladerunner({ history, saveReloadBladerunner }) {
   const [category, saveCategory] = useState('');
   const [replicants, saveReplicants] = useState('');
   const [weapons, saveWeapons] = useState('');
-  const [date, saveDate] = useState('');
   const [animals, saveAnimals] = useState('');
   const [idiosyncrasy, saveIdiosyncrasy] = useState('');
 
@@ -22,7 +21,7 @@ function AddBladerunner({ history, saveReloadBladerunner }) {
 
   const addBladerunner = async e => {
     e.preventDefault();
-    if (name === '' || age === '' || adress === '' || category === '' || replicants === '' || weapons === '' || date === '' || animals === '' || idiosyncrasy === '') {
+    if (name === '' || age === '' || adress === '' || category === '' || replicants === '' || weapons === '' || animals === '' || idiosyncrasy === '') {
       saveError(true);
       return;
     }
@@ -30,14 +29,13 @@ function AddBladerunner({ history, saveReloadBladerunner }) {
 
     //create a new Blade Runner:
     try {
-      const result = await axios.post('http://localhost:4000/bladerunner/bladerunner', {
+      const result = await axios.post('http://localhost:4000/bladerunner', {
         name: name,
         age: age,
         adress: adress,
         category: category,
-        replicants: replicants,
+        replicantsRemoved: replicants,
         weapons: weapons,
-        date: date,
         animals: animals,
         idiosyncrasy: idiosyncrasy
       });
@@ -59,7 +57,7 @@ function AddBladerunner({ history, saveReloadBladerunner }) {
     }
     // user redirect to blade runners added:
     saveReloadBladerunner(true);
-    history.push('/bladerunner/bladerunner')
+    history.push('/bladerunner')
   }
 
   return (
@@ -132,17 +130,6 @@ function AddBladerunner({ history, saveReloadBladerunner }) {
             name="weapons"
             placeholder="weapons"
             onChange={e => saveWeapons(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Date Replicant Retired</label>
-          <input
-            type="text"
-            className="form-control"
-            name="date"
-            placeholder="date retired"
-            onChange={e => saveDate(e.target.value)}
           />
         </div>
 

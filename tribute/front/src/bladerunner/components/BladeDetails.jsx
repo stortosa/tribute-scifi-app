@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
+import '../bladecss.css';
 
 function BladeDetails({ bladerunne, saveReloadBladerunner }) {
   console.log(bladerunne)
@@ -21,7 +21,7 @@ function BladeDetails({ bladerunne, saveReloadBladerunner }) {
     }).then(async (result) => {
       if (result.value) {
         try {
-          const url = (`http://localhost:4000/bladerunner/bladerunner/${_id}`);
+          const url = (`http://localhost:4000/bladerunner/${_id}`);
           const result = await axios.delete(url);
 
           if (result.status === 200) {
@@ -60,7 +60,7 @@ function BladeDetails({ bladerunne, saveReloadBladerunner }) {
       <p>Animlas: {bladerunne.animals}</p>
       <p>Idiosyncrasy: {bladerunne.idiosyncrasy}</p>
       <div>
-        <Link to={`/bladerunner/bladerunner/edit/${bladerunne._id}`} className="btn btn-success mr-2">Edit</Link>
+        <Link to={`/bladerunner/edit/${bladerunne._id}`} className="btn btn-success mr-2">Edit</Link>
         <button type="button" className="btn btn-danger" onClick={() => deleteBladerunner(bladerunne._id)}>Delete &times;</button>
       </div>
     </li>

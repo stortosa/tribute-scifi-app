@@ -71,7 +71,7 @@ function EditReplicant(props) {
     console.log(editingReplicants);
 
     // send request 
-    const url = `http://localhost:4000/bladerunner/replicants/${oneReplicant._id}`;
+    const url = `http://localhost:4000/replicants/${oneReplicant._id}`;
 
     try {
 
@@ -95,7 +95,7 @@ function EditReplicant(props) {
     }
     // user redirect to replicants added:
     saveReloadReplicant(true);
-    history.push('/bladerunner/replicants')
+    history.push('/replicants')
   }
 
   return (

@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
             _id: doc._id,
             request: {
               type: 'GET',
-              url: 'http://localhost:4000/bladerunner/bladerunner/' + doc._id
+              url: 'http://localhost:4000/bladerunner/' + doc._id
             }
           }
         })
@@ -80,7 +80,7 @@ router.post('/', (req, res, next) => {
           _id: result._id,
           request: {
             type: 'POST',
-            url: 'http://localhost:4000/bladerunner/bladerunner/' + result._id
+            url: 'http://localhost:4000/bladerunner/' + result._id
           }
         }
       });
@@ -107,7 +107,7 @@ router.get('/:bladerunnerId', (req, res, next) => {
           request: {
             type: 'GET',
             description: 'Get all Blade Runners',
-            url: 'http://localhost:4000/bladerunner/bladerunner/'
+            url: 'http://localhost:4000/bladerunner/'
           }
         });
       } else {
@@ -146,7 +146,7 @@ router.delete('/:bladerunnerId', (req, res, next) => {
         message: 'Blade Runner info update',
         request: {
           type: 'POST',
-          url: 'http://localhost:4000/bladerunner/bladerunner/',
+          url: 'http://localhost:4000/bladerunner/',
           body: {
             name: 'String',
             age: 'String',

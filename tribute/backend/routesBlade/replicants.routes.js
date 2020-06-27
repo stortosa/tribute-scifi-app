@@ -30,7 +30,7 @@ router.get('/', (req, res, next) => {
             _id: doc._id,
             request: {
               type: 'GET',
-              url: 'http://localhost:4000/bladerunner/replicants/' + doc._id
+              url: 'http://localhost:4000/replicants/' + doc._id
             }
           }
         })
@@ -90,7 +90,7 @@ router.post('/', (req, res, next) => {
           _id: result._id,
           request: {
             type: 'POST',
-            url: 'http://localhost:4000/bladerunner/replicants/' + result._id
+            url: 'http://localhost:4000/replicants/' + result._id
           }
         }
       });
@@ -117,7 +117,7 @@ router.get('/:replicantId', (req, res, next) => {
           request: {
             type: 'GET',
             description: 'Get all Replicants',
-            url: 'http://localhost:4000/bladerunner/replicants/'
+            url: 'http://localhost:4000/replicants/'
           }
         });
       } else {
@@ -156,7 +156,7 @@ router.delete('/:replicantId', (req, res, next) => {
         message: 'Replicant Retired',
         request: {
           type: 'POST',
-          url: 'http://localhost:4000/bladerunner/replicants/',
+          url: 'http://localhost:4000/replicants/',
           body: {
             name: 'String',
             gender: 'String',

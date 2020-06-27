@@ -9,7 +9,6 @@ const bladeRunnerSchema = mongoose.Schema({
   category: { type: String, required: true },
   replicantsRemoved: { type: String, required: true },
   weapons: { type: String },
-  dateReplicantRemoved: { type: String },
   animals: { type: String },
   idiosyncrasy: { type: String }
 })

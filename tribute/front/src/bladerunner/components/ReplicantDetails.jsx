@@ -21,7 +21,7 @@ function ReplicantDetails({ replicant, saveReloadReplicant }) {
     }).then(async (result) => {
       if (result.value) {
         try {
-          const url = (`http://localhost:4000/bladerunner/replicants/${_id}`);
+          const url = (`http://localhost:4000/replicants/${_id}`);
           const result = await axios.delete(url);
 
           if (result.status === 200) {
@@ -63,7 +63,7 @@ function ReplicantDetails({ replicant, saveReloadReplicant }) {
       <p>Retired: {replicant.animals}</p>
       <p>Idiosyncrasy: {replicant.idiosyncrasy}</p>
       <div>
-        <Link to={`/bladerunner/replicants/edit/${replicant._id}`} className="btn btn-success mr-2">Edit</Link>
+        <Link to={`/replicants/edit/${replicant._id}`} className="btn btn-success mr-2">Edit</Link>
         <button type="button" className="btn btn-danger" onClick={() => deleteReplicant(replicant._id)}>Delete &times;</button>
       </div>
     </li>

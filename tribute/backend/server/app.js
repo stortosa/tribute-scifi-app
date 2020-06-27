@@ -50,8 +50,8 @@ app.use((req, res, next) => {
 //app.use('/goals', goalRoutes);
 
 // Routes bladerunnerTAB:
-app.use('/bladerunner/bladerunner', bladerunnerRoutes);
-app.use('/bladerunner/replicants', replicantRoutes);
+app.use('/bladerunner', bladerunnerRoutes);
+app.use('/replicants', replicantRoutes);
 
 // Routes TronTAB:
 

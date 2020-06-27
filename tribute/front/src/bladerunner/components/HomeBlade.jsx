@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import '../bladecss.css';
 
 const HomeBlade = () => (
   <div>
@@ -7,28 +8,29 @@ const HomeBlade = () => (
       <div className="container">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink to="/bladerunner/bladerunner" className="nav-link" activeClassName="active">
+            <NavLink to="/bladerunner" className="nav-link" activeClassName="active">
               LIST OF BLADE RUNNERS
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/bladerunner/bladerunner/new" className="nav-link" activeClassName="active">
+            <NavLink to="/bladerunner/new" className="nav-link" activeClassName="active">
               ADD A BLADE RUNNERS
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/bladerunner/replicants" className="nav-link" activeClassName="active">
+            <NavLink to="/replicants" className="nav-link" activeClassName="active">
               LIST OF REPLICANTS
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/bladerunner/replicants/new" className="nav-link" activeClassName="active">
+            <NavLink to="/replicants/new" className="nav-link" activeClassName="active">
               ADD A REPLICANT
             </NavLink>
           </li>
         </ul>
       </div>
     </nav>
+    <div className="rain">HOME LANDING PAGE OF BLADE RUNNER</div>
   </div>
 );
 export default HomeBlade;

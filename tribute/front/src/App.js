@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     if (reloadBladerunner) {
       const requestApi = async () => {
-        const result = await axios.get('http://localhost:4000/bladerunner/bladerunner/')
+        const result = await axios.get('http://localhost:4000/bladerunner/')
         // console.log(result.data.bladerunners);
         saveBladerunner(result.data.bladerunners)
       }
@@ -42,7 +42,7 @@ function App() {
   useEffect(()=>{
     if(reloadReplicant){
       const requestApiR = async () => {
-        const result = await axios.get('http://localhost:4000/bladerunner/replicants/')
+        const result = await axios.get('http://localhost:4000/replicants/')
         // console.log(result.data.replicants);
         saveReplicants(result.data.replicants);
       }
@@ -57,11 +57,11 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/bladerunner/home" render={()=> <HomeBlade />} />
-        <Route exact path="/bladerunner/bladerunner" render={() =>
+        <Route exact path="/bladerunner" render={() =>
           <Bladerunners bladerunner={bladerunner} saveReloadBladerunner={saveReloadBladerunner} />} />
-        <Route exact path="/bladerunner/bladerunner/new" render={() => <AddBladerunner saveReloadBladerunner={saveReloadBladerunner} />} />
-        <Route exact path="/bladerunner/bladerunner/:_id" render={() => <BladeDetails />} />
-        <Route exact path="/bladerunner/bladerunner/edit/:_id" render={(props) => {
+        <Route exact path="/bladerunner/new" render={() => <AddBladerunner saveReloadBladerunner={saveReloadBladerunner} />} />
+        <Route exact path="/bladerunner/:_id" render={() => <BladeDetails />} />
+        <Route exact path="/bladerunner/edit/:_id" render={(props) => {
           // console.log(props.match.params);
           const idBlade = (props.match.params._id);
           const oneBladerunner = bladerunner.filter(bladerunne => bladerunne._id === idBlade);
@@ -71,11 +71,11 @@ function App() {
               saveReloadBladerunner={saveReloadBladerunner} />
           )
         }} />
-        <Route exact path="/bladerunner/replicants" render={() =>
+        <Route exact path="/replicants" render={() =>
           <Replicants replicants={replicants} saveReloadReplicant={saveReloadReplicant} />} />
-        <Route exact path="/bladerunner/replicants/new" render={() => <AddReplicant saveReloadReplicant={saveReloadReplicant} />} />
-        <Route exact path="/bladerunner/replicants/:_id" render={() => <ReplicantDetails />} />
-        <Route exact path="/bladerunner/replicants/edit/:_id" render={(props) => {
+        <Route exact path="/replicants/new" render={() => <AddReplicant saveReloadReplicant={saveReloadReplicant} />} />
+        <Route exact path="/replicants/:_id" render={() => <ReplicantDetails />} />
+        <Route exact path="/replicants/edit/:_id" render={(props) => {
           // console.log(props.match.params);
           const idReplicant = (props.match.params._id);
           const oneReplicant = replicants.filter(replicant => replicant._id === idReplicant);

@@ -62,7 +62,7 @@ function EditBladerunner(props) {
     console.log(editingBladerunner);
 
     // send request 
-    const url = `http://localhost:4000/bladerunner/bladerunner/${oneBladerunner._id}`;
+    const url = `http://localhost:4000/bladerunner/${oneBladerunner._id}`;
 
     try {
 
@@ -86,7 +86,7 @@ function EditBladerunner(props) {
     }
     // user redirect to goals added:
     saveReloadBladerunner(true);
-    history.push('/bladerunner/bladerunner')
+    history.push('/bladerunner')
   }
 
   return (

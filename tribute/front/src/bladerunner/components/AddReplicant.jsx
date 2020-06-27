@@ -33,7 +33,7 @@ function AddReplicant({ history, saveReloadReplicant }) {
 
     //create a new Replicant:
     try {
-      const result = await axios.post('http://localhost:4000/bladerunner/replicants', {
+      const result = await axios.post('http://localhost:4000/replicants', {
         name: name,
         gender: gender,
         age: age,
@@ -65,7 +65,7 @@ function AddReplicant({ history, saveReloadReplicant }) {
     }
     // user redirect to replicant added:
     saveReloadReplicant(true);
-    history.push('/bladerunner/replicants')
+    history.push('/replicants')
   }
 
   return (
