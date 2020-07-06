@@ -30,7 +30,12 @@ const HomeBlade = () => (
         </ul>
       </div>
     </nav>
-    <div className="rain">HOME LANDING PAGE OF BLADE RUNNER</div>
+    <div className="rain">HOME LANDING PAGE OF BLADE RUNNER
+      <h1>Do the androids dream of electric sheep?</h1>
+      <h1>Blade Runner</h1><h4>Ridley Scott</h4>
+      <h1>Blade Runner 2049</h1><h4>Denis Villeneuve</h4>
+
+    </div>
   </div>
 );
 export default HomeBlade;

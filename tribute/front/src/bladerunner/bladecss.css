@@ -8,17 +8,15 @@ h1{
 body{
   margin: 0;
   padding: 0;
-  background: black;
-  /* background: url(background.jpg); */
+  background: url('./imgs/mobydick1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 
 }
 .rain{
   height: 100vh;
-  background: rgb(91, 91, 167);
-  /* background: url(rain.jpg); */
-  animation: rain .3s linear infinite;
+  background: url('./imgs/rain.png');
+  animation: rain .14s linear infinite;
 
 }
 .rain:before{
@@ -35,7 +33,7 @@ body{
       background-position: 0% 0%;
   }
   100%{
-      background-position: 20% 100%;
+      background-position: -10% -100%;
   }
 }
 @keyframes lighting{
