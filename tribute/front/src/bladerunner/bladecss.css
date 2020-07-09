@@ -8,7 +8,8 @@ h1{
 body{
   margin: 0;
   padding: 0;
-  background: url('./imgs/mobydick1.jpg');
+  background: black;
+  /* background: url('./imgs/'); */
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -16,7 +17,7 @@ body{
 .rain{
   height: 100vh;
   background: url('./imgs/rain.png');
-  animation: rain .14s linear infinite;
+  animation: rain .15s linear infinite;
 
 }
 .rain:before{
