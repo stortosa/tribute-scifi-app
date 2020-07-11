@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-// introducir los datos de los replicantes de las peliculas:
-
+// Replicants data info:
 const replicantSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   name: { type: String, required: true },

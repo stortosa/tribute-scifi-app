@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
+// import roybatty from '../imgs/roybatty.gif';
 
 function ReplicantDetails({ replicant, saveReloadReplicant }) {
   console.log(replicant)
 
   const deleteReplicant = (_id) => {
-    console.log("Eliminando...", _id);
+    console.log("Deleting...", _id);
 
     Swal.fire({
       title: 'Are you sure?',
@@ -44,6 +44,8 @@ function ReplicantDetails({ replicant, saveReloadReplicant }) {
       }
     })
   }
+
+
   return (
 
     <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -62,6 +64,8 @@ function ReplicantDetails({ replicant, saveReloadReplicant }) {
       <p>Destiny Planet: {replicant.animals}</p>
       <p>Retired: {replicant.animals}</p>
       <p>Idiosyncrasy: {replicant.idiosyncrasy}</p>
+      {/* <img src={roybatty} alt="Batty" width="150px" height="150px"></img> */}
+      {/* a la fuerza */}
       <div>
         <Link to={`/replicants/edit/${replicant._id}`} className="btn btn-success mr-2">Edit</Link>
         <button type="button" className="btn btn-danger" onClick={() => deleteReplicant(replicant._id)}>Delete &times;</button>
