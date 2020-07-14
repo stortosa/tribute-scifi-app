@@ -9,7 +9,7 @@ require('./db');
 // meter las routes aqui una vez creadas el archivo de rutas.
 
 // Routes BladerunnerTAB
-const bladerunnerRoutes = require('../routesBlade/bladerunner.routes');
+// const bladerunnerRoutes = require('../routesBlade/bladerunner.routes');
 const replicantRoutes = require('../routesBlade/replicants.routes');
 
 // Routes TronTAB:
@@ -46,12 +46,9 @@ app.use((req, res, next) => {
 
 
 // Routes which should handle requests
-// example:
-//app.use('/goals', goalRoutes);
 
 // Routes bladerunnerTAB:
-app.use('/bladerunner', bladerunnerRoutes);
-app.use('/replicants', replicantRoutes);
+// app.use('/replicants', replicantRoutes);
 
 // Routes TronTAB:
 

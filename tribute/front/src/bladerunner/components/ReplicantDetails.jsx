@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function ReplicantDetails({ replicant }) {
   console.log(replicant)
@@ -11,7 +10,7 @@ function ReplicantDetails({ replicant }) {
       <p>Functionality: {replicant.functionality}</p>
       <p>Mental: {replicant.mental}</p>
       <p>Physical: {replicant.physical}</p>
-      <p><img src={replicant.photo} /></p>
+      <p><img src={replicant.photo} alt="photos" /></p>
     </li>
   );
 }

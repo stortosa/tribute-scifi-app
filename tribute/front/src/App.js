@@ -9,10 +9,8 @@ import Footer from './components/Footer.jsx';
 //pages:
 import HomeBlade from './bladerunner/components/HomeBlade';
 //Components:
-import AddBladerunner from './bladerunner/components/AddBladerunner';
 import Bladerunners from './bladerunner/components/Bladerunners';
 import BladeDetails from './bladerunner/components/BladeDetails';
-import EditBladerunner from './bladerunner/components/EditBladerunner';
 import Replicants from './bladerunner/components/Replicants';
 import ReplicantDetails from './bladerunner/components/ReplicantDetails';
 
@@ -20,21 +18,16 @@ function App() {
   const date = new Date().getFullYear();
 
   const [bladerunner, saveBladerunner] = useState([]);
-  const [reloadBladerunner, saveReloadBladerunner] = useState(true);
   const [replicants, saveReplicants] = useState([]);
 
   useEffect(() => {
-    if (reloadBladerunner) {
-      const requestApi = async () => {
-        const result = await axios.get('http://localhost:4000/bladerunner/')
-        // console.log(result.data.bladerunners);
-        saveBladerunner(result.data.bladerunners)
-      }
-      requestApi();
-      //change a false reload of bladerunner:
-      saveReloadBladerunner(false);
+    const fetchBlade = async () => {
+      const db = firebase.firestore();
+      const dataBlade = await db.collection('bladerunners').get()
+      saveBladerunner(dataBlade.docs.map(doc => doc.data()))
     }
-  }, [reloadBladerunner]);
+    fetchBlade();
+  }, [saveBladerunner]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +36,7 @@ function App() {
       saveReplicants(data.docs.map(doc => doc.data()))
     }
     fetchData();
-  }, [])
+  }, [saveReplicants])
 
   return (
     <Router>
@@ -51,19 +44,7 @@ function App() {
       <Switch>
         <Route exact path="/bladerunner/home" render={() => <HomeBlade />} />
         <Route exact path="/bladerunner" render={() =>
-          <Bladerunners bladerunner={bladerunner} saveReloadBladerunner={saveReloadBladerunner} />} />
-        <Route exact path="/bladerunner/new" render={() => <AddBladerunner saveReloadBladerunner={saveReloadBladerunner} />} />
-        <Route exact path="/bladerunner/:_id" render={() => <BladeDetails />} />
-        <Route exact path="/bladerunner/edit/:_id" render={(props) => {
-          // console.log(props.match.params);
-          const idBlade = (props.match.params._id);
-          const oneBladerunner = bladerunner.filter(bladerunne => bladerunne._id === idBlade);
-          return (
-            <EditBladerunner
-              oneBladerunner={oneBladerunner[0]}
-              saveReloadBladerunner={saveReloadBladerunner} />
-          )
-        }} />
+          <Bladerunners bladerunner={bladerunner} />} />
         <Route exact path="/replicants" render={() =>
           <Replicants replicants={replicants} />} />
         {/* <Route exact path="/replicants/:_id" render={() => <ReplicantDetails />} /> */}

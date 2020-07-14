@@ -13,28 +13,17 @@ const HomeBlade = () => (
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/bladerunner/new" className="nav-link" activeClassName="active">
-              ADD A BLADE RUNNERS
-            </NavLink>
-          </li>
-          <li className="nav-item">
             <NavLink to="/replicants" className="nav-link" activeClassName="active">
               LIST OF REPLICANTS
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/replicants/new" className="nav-link" activeClassName="active">
-              ADD A REPLICANT
             </NavLink>
           </li>
         </ul>
       </div>
     </nav>
-    <div className="rain">HOME LANDING PAGE OF BLADE RUNNER
+    <div className="rain">
       <h1>Do the androids dream of electric sheep?</h1><h4>Philip K. Dick</h4>
       <h1>Blade Runner</h1><h4>Ridley Scott</h4>
       <h1>Blade Runner 2049</h1><h4>Denis Villeneuve</h4>
-
     </div>
   </div>
 );
