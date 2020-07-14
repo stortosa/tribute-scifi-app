@@ -2,6 +2,7 @@ import * as firebase from 'firebase';
 import "firebase/storage";
 
 // Your web app's Firebase configuration
+// Remenber change to ocult with process.env. ...
 var firebaseConfig = {
   apiKey: "AIzaSyAMZh5GNZpqZW2Na9ExMoIm4sbZEKLtSOM",
   authDomain: "tribute-scifi-app.firebaseapp.com",
